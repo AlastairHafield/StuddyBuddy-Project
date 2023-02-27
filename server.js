@@ -13,7 +13,7 @@ const exphbs = require("express-handlebars");
 //handlebars
 const hbs = exphbs.create({ helpers });
 //require socket io
-const io = require ('socket.io')(http)
+const io = require("socket.io");
 
 //require session
 const session = require("express-session");
