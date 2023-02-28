@@ -4,6 +4,7 @@ const http = require("http").Server(app);
 const io = require("socket.io")(http);
 
 app.use(express.static(__dirname + "/api/meeting-routes.js"));
+app.use(express.static(__dirname + '/public'));
 
 io.on("connection", (socket) => {
   console.log("a user connected");
