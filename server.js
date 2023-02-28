@@ -19,6 +19,8 @@ const io = require("socket.io");
 const session = require("express-session");
 //session store
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+// Discord library
+const Discord = require("discord.js");
 
 // session const
 const sess = {
