@@ -23,3 +23,33 @@ const loginFormHandler = async (event) => {
 document
   .querySelector(".login-form")
   .addEventListener("submit", loginFormHandler);
+
+//discord expanding widget
+const client = new Discord.Client();
+
+client.on("message", (message) => {
+  if (message.content === "!expand") {
+    const embed = new Discord.MessageEmbed()
+      .setTitle("Click to Expand")
+      .setDescription("This is the initial content of the expanding widget.");
+
+    message.channel.send(embed).then((sentEmbed) => {
+      sentEmbed.react("🔽");
+
+      const filter = (reaction, user) =>
+        reaction.emoji.name === "🔽" && user.id === message.author.id;
+      const collector = sentEmbed.createReactionCollector(filter, {
+        time: 60000,
+      });
+
+      collector.on("collect", () => {
+        embed.setDescription(
+          "This is the expanded content of the expanding widget."
+        );
+        sentEmbed.edit(embed);
+      });
+    });
+  }
+});
+
+client.login("your-bot-token");
