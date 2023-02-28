@@ -2,9 +2,10 @@ const express = require("express");
 const app = express();
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
+const Discord = require("discord.js");
 
 app.use(express.static(__dirname + "/api/meeting-routes.js"));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + "/public"));
 
 io.on("connection", (socket) => {
   console.log("a user connected");
