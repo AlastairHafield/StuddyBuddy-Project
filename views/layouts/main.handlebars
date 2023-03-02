@@ -1,38 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Studdy Buddy</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./public/stylesheets/css/style.css">
 </head>
- <body>
+
+<body>
+    <body>
     <div class="hero">
 
         <video autoplay loop muted plays-inline class="background-video">
-            <source src="Images/RPReplay_Final1677653151.mp4" type="video/mp4">
+            <source src="./images/RPReplay_Final1677653151.mp4" type="video/mp4">
         </video>
 
         <nav>
             <img src="Images/Logo.jpeg" class="logo">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Sign Out</a></li>
+                   <li><a href="./main.handlebars">Home</a></li>
+                    <li><a href="./dashboard.html">Dashboard</a></li>
+                    <li><a href="./Forum.html">Forum</a></li>
+                    <li><a href="#">Sign In</a></li>
                  </ul>
         </nav>
-      
-
-        <div class="banner-text">
-            <h1>  Need help studying? </h1>
-            <p>Studdy Buddy is the UK's largest online student community. Find a friend, relate and connect.</p>
-            <a href="#">SIGN UP</a>
-<div> </div>
 
     </div>
+      <nav>
+        {{#if loggedIn}}
+        <a href="/dashboard">dashboard</a>
+        <button id="logout" class="btn-no-style logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
+    </header>
 
- </body>
+    <div class="banner-text">
+            <h1>  Need help studying? </h1>
+            <p>This Student Place is the UK's largest online student community. Find a friend, relate and connect.</p>
+            <a href="#">SIGN UP</a> {{#if loggedIn}}
+    </div>
+    <main>
+      
+  </div>
+
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
+</body>
+
 </html>
